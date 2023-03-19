@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SENG405ResourseLecture</string>
+    <string name="textviewString">Hello SENG 405 Lecture modified</string>
+    <string name="seng_405_lecture_button">SENG 405 Lecture Button</string>
+    <string name="usernnamedesription">Please enter your username and Password</string>
+    <string name="login">Login User</string>
+</resources>
