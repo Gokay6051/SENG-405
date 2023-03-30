@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9DD2EA"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".GameActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="3"
+      android:orientation="vertical">
+
+    <Button
+        android:id="@+id/player1Button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#03606C"
+        android:backgroundTint="#0586C1"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:onClick="startButton1"
+        android:text="" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/textview"
+        android:textSize="27sp" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="3"
+      android:orientation="vertical">
+
+    <Button
+        android:id="@+id/player2Button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:enabled="false"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:onClick="startButton2"
+        android:text="" />
+  </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
