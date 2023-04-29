@@ -46,7 +46,7 @@ public class GameActivity extends AppCompatActivity {
     public void startButton1(View v) {
         if (flag==0) {
             //will be functionalized and optimized
-            mCountDownTimer = new CountDownTimer(remanTime, 1000) {
+            mCountDownTimer = new CountDownTimer(remanTime, 5) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     // Update the UI with the remaining time
@@ -75,7 +75,7 @@ public class GameActivity extends AppCompatActivity {
     public void startButton2(View v) {
         if (flag==0) {
             //will be functionalized and optimized
-            mCountDownTimer = new CountDownTimer(remanTime, 1000) {
+            mCountDownTimer = new CountDownTimer(remanTime, 5) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     // Update the UI with the remaining time

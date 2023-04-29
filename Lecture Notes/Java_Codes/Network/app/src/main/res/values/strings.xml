@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Network</string>
+
+    <string name="network_connection_error">you do not have an internet connection.</string>
+</resources>
