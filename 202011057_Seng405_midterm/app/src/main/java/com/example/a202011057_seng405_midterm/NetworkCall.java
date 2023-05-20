@@ -16,15 +16,17 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class NetworkCall {
-    //private String S;
-    public NetworkCall(){}
+    String s1;
+    public NetworkCall(String s1){this.s1=s1;}
 
     public void getPersonList(View view) {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
+
+
         Request request = new Request.Builder()
-                .url("https://reqres.in/api/users?page=2")
+                .url("https://reqres.in/api/users?page=" + s1)
                 .method("GET", null)
                 .addHeader("accept", "application/json")
                 .build();
@@ -40,10 +42,11 @@ public class NetworkCall {
 
                 if(response.isSuccessful())
                 {
+                    assert response.body() != null;
                     final String json = response.body().string();
-                    Person[] PersonList = new Gson().fromJson(json, Person[].class);
-
-                    view.displayPersonData(PersonList);
+                    Data data = new Gson().fromJson(json, Data.class);
+                    Person[] personList = data.getPersons();
+                    view.displayPersonData(personList);
 
                 }
             }

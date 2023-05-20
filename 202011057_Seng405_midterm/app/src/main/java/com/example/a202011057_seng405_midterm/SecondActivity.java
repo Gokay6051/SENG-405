@@ -30,43 +30,48 @@ public class SecondActivity extends AppCompatActivity implements View{
         }
         else
         {
-            Toast.makeText(getApplicationContext(), "network_connection_error", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), "network_connection_error", Toast.LENGTH_SHORT).show();
         }
     }
     private void getPersonData() {
-        NetworkCall networkCall = new NetworkCall();
-        networkCall.getPersonList(this); //tekrar bak
+        NetworkCall networkCall = new NetworkCall(S1);
+        networkCall.getPersonList(this);
     }
 
     private boolean haveNetworkConnection() {
         boolean haveConnectedWifi = false;
         boolean haveConnectedMobile = false;
 
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
-        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
-        for (NetworkInfo ni : netInfo) {
-            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
-                if (ni.isConnected())
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo[] networkInfos = connectivityManager.getAllNetworkInfo();
+
+        for(NetworkInfo networkInfo : networkInfos)
+        {
+            if(networkInfo.getTypeName().equalsIgnoreCase("WIFI"))
+            {
+                if(networkInfo.isConnected())
+                {
                     haveConnectedWifi = true;
-            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
-                if (ni.isConnected())
+                }
+            }
+            if(networkInfo.getTypeName().equalsIgnoreCase("MOBILE"))
+            {
+                if(networkInfo.isConnected())
+                {
                     haveConnectedMobile = true;
+                }
+            }
         }
         return haveConnectedWifi || haveConnectedMobile;
     }
 
     @Override
     public void displayPersonData(Person[] persons) {
-        SecondActivity.this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                displayPersonList(persons);
-            }
-        });
+        SecondActivity.this.runOnUiThread(() -> displayPersonList(persons));
     }
 
     private void displayPersonList(Person[] persons) {
-        ArrayList<Person> personArrayList = new ArrayList<Person>();
+        ArrayList<Person> personArrayList = new ArrayList<>();
 
         Collections.addAll(personArrayList, persons);
 
